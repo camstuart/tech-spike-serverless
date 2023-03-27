@@ -1,4 +1,4 @@
-# aws-serverless-nodejs-typescript-lamdba-sqs-dynamodb
+# tech-spike-serverless
 
 The project is a tech-spike to test the following capabilities for a typescript aws lambda function:
 
