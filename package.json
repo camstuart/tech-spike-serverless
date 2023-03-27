@@ -1,5 +1,5 @@
 {
-  "name": "aws-serverless-nodejs-typescript-lamdba-sqs-dynamodb",
+  "name": "tech-spike-serverless",
   "version": "1.0.0",
   "description": "Serverless aws-nodejs-typescript template",
   "main": "serverless.ts",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": ">=14.15.0"
+    "node": ">=18.15.0"
   },
   "dependencies": {
     "@middy/core": "^3.4.0",
