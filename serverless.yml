@@ -1,0 +1,45 @@
+service: my-service
+
+plugins:
+  - serverless-bundle
+  - serverless-dynamodb-local
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  myFunction:
+    handler: src/index.handler
+    events:
+      - sqs:
+          arn: "arn:aws:sqs:ap-southeast-2:123456789012:my-queue"
+
+resources:
+  Resources:
+    MyTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: my-table
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+
+# custom:
+#   dynamodb:
+#     stages:
+#       - dev
+#     start:
+#       port: 8000
+#       inMemory: true
+#       migrate: false
+#     # Comment if you don't have a DynamoDB running locally
+#       noStart: true
+
