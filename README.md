@@ -25,6 +25,9 @@ yarn add --dev serverless-dynamodb-local serverless-offline
 ```bash
 nvm use 18.15.0
 yarn install
+```
+
+```bash
 serverless invoke local --function myFunction --path sqs-event.json
 ```
 
