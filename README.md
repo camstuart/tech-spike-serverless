@@ -2,12 +2,13 @@
 
 The project is a tech-spike to test the following capabilities for a typescript aws lambda function:
 
-1. [x] Local development with serverless-offline:
-2. [X] SQS invoked lambda function
-3. [ ] DynamoDB table creation and seeding from `serverless.yml`
-4. [ ] DynamoDB write record from lambda
-5. [ ] Ability to run lambda function with in debug mode with ide breakpoints
-6. [ ] jest 'integration' tests that confirm an SQS event triggers the lambda which in turn writes to a dynamodb table
+1. [X] Local development with serverless-offline:
+1. [X] SQS invoked lambda function
+1. [ ] DynamoDB table creation and seeding from `serverless.yml`
+1. [ ] DynamoDB write record from lambda
+1. [X] Ability to run lambda function with in debug mode with ide breakpoints: WebStorm
+1. [ ] Ability to run lambda function with in debug mode with ide breakpoints: VSCode
+1. [ ] jest 'integration' tests that confirm an SQS event triggers the lambda which in turn writes to a dynamodb table
 
 ## Setup shell notes
 
@@ -26,10 +27,24 @@ yarn add --dev serverless-dynamodb-local serverless-offline
 nvm use 18.15.0
 yarn install
 ```
+Recommended:
+
+```bash
+yarn run run:local
+```
+
+Or:
 
 ```bash
 serverless invoke local --function myFunction --path sqs-event.json
 ```
+
+### Debugging in webstorm:
+
+Webstorm will automatically detect/create a run configuration in `package.json`\
+Meaning you will be able to click the 'play' button (or right click for debug options) next to the\
+`run:local` script in `package.json` to run the function locally.
+
 
 ### DynamoDB integration (write)
 
