@@ -5,7 +5,7 @@
   "main": "serverless.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run:local": "serverless invoke local --function myFunction --path sqs-event.json"
+    "run:local": "serverless invoke local --function myFunction --path ./offline/sqs-event.json"
   },
   "engines": {
     "node": ">=18.15.0"

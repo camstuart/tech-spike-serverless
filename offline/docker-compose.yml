@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  localstack:
+    container_name: "localstack" # Container name in your docker
+    #image: localstack/localstack:latest # Will download latest version of localstack
+    image: localstack/localstack-full:latest # Full image support WebUI
+    ports:
+      - "4566:4566" # Default port forward
+      - "8080:8080" # WebUI port forward
+    environment:
+      - SERVICES=s3, dynamodb # Required AWS Services that you need in your localstack
+      - DEBUG=0 # Debug level 1 if you want to logs, 0 if you want to disable
+      - START_WEB=1 # Flag to control whether the Web UI should be started in Docker
+      - DATA_DIR=/var/lib/localstack/data #  Local directory for saving persistent data(Example: es storage)
+      - DEFAULT_REGION=ap-southeast-2
+      - AWS_ACCESS_KEY_ID=local
+      - AWS_SECRET_ACCESS_KEY=local
+#  dynamodb-admin:
+#    image: aaronshaf/dynamodb-admin:4.5.1
+#    ports:
+#      - "8001:8001"
+#    environment:
+#      DYNAMO_ENDPOINT: "http://dynamodb:8000"
+#      AWS_REGION: "ap-southest-2"
+#      AWS_ACCESS_KEY_ID: local
+#      AWS_SECRET_ACCESS_KEY: local
+#    depends_on:
+#      - localstack
+    volumes:
+      - './.localstack:/var/lib/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+#      - ./create-local-resources.sh:/docker-entrypoint-initaws.d/create-resources.sh
