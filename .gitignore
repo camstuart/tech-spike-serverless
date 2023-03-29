@@ -8,5 +8,11 @@ jspm_packages
 # esbuild directories
 .esbuild
 
-# persisted dynamodb data
-.dynamodb-data
+# persisted localstack data
+offline/.localstack
+
+# intellij files
+.idea
+
+# webpack build artefacts
+.webpack
