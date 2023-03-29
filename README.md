@@ -17,6 +17,7 @@ The project is a tech-spike to test the following capabilities for a typescript 
 ```bash
 nvm install v18.15.0
 npm install -g serverless
+pip install awscli-local # once off, requires python 3.6+
 serverless create --template aws-nodejs-typescript --path tech-spike-serverless
 cd tech-spike-serverless
 yarn add aws-sdk aws-sdk-mock 
