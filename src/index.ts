@@ -7,10 +7,12 @@ const dynamoDB: AWS.DynamoDB = new AWS.DynamoDB({
     endpoint: "http://localhost:4566",
 });
 
+
 const s3Client = new AWS.S3({
     region,
     endpoint: 'http://s3.localhost.localstack.cloud:4566'
 });
+
 
 export const handler: SQSHandler = async (event: SQSEvent) => {
     const records = event.Records;
